@@ -2,7 +2,9 @@
 一些学习项目
 
 # 1.平滑移动
-```
+> **优化t值的函数**
+
+```cs
 using UnityEngine;
 
 public class LerpMove : MonoBehaviour
@@ -55,6 +57,5 @@ public class LerpMove : MonoBehaviour
         Move(KeyCode.D, Vector3.right);
     }
 }
-
 
 ```
