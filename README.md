@@ -4,7 +4,7 @@
 # 1.平滑移动
 > **优化t值的函数**
 
-```csharp{.code-block-black}
+```csharp
 using UnityEngine;
 public class LerpMove : MonoBehaviour
 {
