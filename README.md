@@ -4,9 +4,8 @@
 # 1.平滑移动
 > **优化t值的函数**
 
-```cs
+```csharp
 using UnityEngine;
-
 public class LerpMove : MonoBehaviour
 {
     [SerializeField] float moveTime = 1f;
