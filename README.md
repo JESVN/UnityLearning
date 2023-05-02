@@ -1,20 +1,9 @@
-<script>
-var style = document.createElement('style');
-style.innerHTML = `
-.black-background {
-    background-color: black;
-    color: white;
-}`;
-document.head.appendChild(style);
-</script>
-
 # UnityLearning
 一些学习项目
 
 # 1.平滑移动
 > **优化t值的函数**
 
-<div class="black-background">
 ```csharp
 using UnityEngine;
 public class LerpMove : MonoBehaviour
@@ -69,4 +58,3 @@ public class LerpMove : MonoBehaviour
 }
 
 ```
-</div>
