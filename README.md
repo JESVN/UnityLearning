@@ -1,13 +1,22 @@
 # UnityLearning
 一些学习项目
 # 1.平滑移动
-> **优化t值的函数**
-> 可以在QuaEaseIn、QuaEaseOut、CubicInOut三个函数之间切换看看效果，以及不执行这三个函数的效果
+> **t值变化呈现出的不同效果**
+> 在面板上切换枚举，移动将呈现不同的效果
 
 ```csharp
 using UnityEngine;
+
 public class LerpMove : MonoBehaviour
 {
+    public enum TChange
+    {
+        None,
+        Change0,
+        Change1,
+        Change2,
+    }
+    [SerializeField]TChange change;
     [SerializeField] float moveTime = 1f;
     float animTime;
     bool isAnimating;
@@ -22,16 +31,37 @@ public class LerpMove : MonoBehaviour
             CheckInput();
     }
 
+
     void Animate()
     {
         animTime += Time.deltaTime;
         float t = Mathf.Clamp01(animTime / moveTime);
 
-        t = CubicInOut(t);
+        ChangeT(ref t);
 
         transform.position = Vector3.Lerp(posStart, posTarget, t);
         if (t >= 1f)
             isAnimating = false;
+    }
+
+    void ChangeT(ref float t)
+    {
+        switch (change)
+        {
+            case TChange.None:
+                break;
+            case TChange.Change0:
+                t = QuaEaseIn(t);
+                break;
+            case TChange.Change1:
+                t = QuaEaseOut(t);
+                break;
+            case TChange.Change2:
+                t = CubicInOut(t);
+                break;
+            default:
+                break;
+        }
     }
 
     float QuaEaseIn(float t) => t * t;
@@ -56,4 +86,5 @@ public class LerpMove : MonoBehaviour
         Move(KeyCode.D, Vector3.right);
     }
 }
+
 ```
