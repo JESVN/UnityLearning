@@ -95,7 +95,7 @@ public class LerpMove : MonoBehaviour
 
 ```
 
-## 移动的线段
+## 2.移动的线段
 
 ```csharp
 using System.Collections.Generic;
